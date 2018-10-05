@@ -17,4 +17,18 @@ noremap! <C-?> <Right><C-h>
 set backspace=indent,eol,start
 
 " インデント
-noremap gt gg=G<C-o><C-o>
+noremap mm gg=G<C-o><C-o>
+
+inoremap < <><Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+inoremap ( ()<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+
+"inoremap {<CR> {}<Left><CR><ESC><S-o>
+"inoremap (<CR> ()<Left><CR><ESC><S-o>
+
+nnoremap -- :s/\(^\s*\)/\1\/\//<CR>:s/\(^\s*\)\/\/\/\//\1/<CR>
+vnoremap -- :s/\(^\s*\)/\1\/\//<CR>:'<,'>s/\(^\s*\)\/\/\/\//\1/<CR>
+nnoremap mc :let<Space>@z=@@<CR>%vey%p:let<Space>@@=@z<CR>a><ESC>%a/<ESC><Left>i
